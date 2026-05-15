@@ -53,6 +53,7 @@ export async function GET() {
   }
 
   // Fetch the user's freeze dates from Supabase and merge them in as active days
+  const freezeDateSet = new Set<string>();
   const { data: dbUser } = await supabaseAdmin
     .from("users")
     .select("id")
@@ -69,6 +70,7 @@ export async function GET() {
     if (Array.isArray(freezes)) {
       for (const row of freezes) {
         daySet[row.freeze_date] = true;
+        freezeDateSet.add(row.freeze_date);
       }
     }
   }
@@ -112,5 +114,6 @@ export async function GET() {
     longest: longestStreak,
     lastCommitDate: lastDay,
     totalActiveDays: commitDays.length,
+    freezeDates: Array.from(freezeDateSet),
   });
 }
