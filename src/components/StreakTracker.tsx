@@ -402,7 +402,7 @@ export default function StreakTracker() {
               type="button"
               onClick={handleDownload}
               disabled={isDownloading}
-              className="cursor-pointer flex h-8 items-center justify-center rounded-md px-3 py-1.5 text-xs font-medium bg-[#5b6ef6] text-white hover:bg-[#4b5ee6] disabled:opacity-70 focus:outline-none focus:ring-2 focus:ring-[#5b6ef6]/50 transition-colors gap-1.5 shadow-sm"
+              className="cursor-pointer flex h-8 items-center justify-center rounded-md px-3 py-1.5 text-xs font-medium bg-[var(--accent)] text-[var(--accent-foreground)] hover:opacity-90 disabled:opacity-70 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-colors gap-1.5 shadow-sm"
               aria-label="Share streak stats as image"
             >
               {isDownloading ? (
